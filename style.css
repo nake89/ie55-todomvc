@@ -1,0 +1,23 @@
+BODY {
+  background-color: #F5F5F5;
+  font-family: Times New Roman; 
+}
+
+.todo-title {
+  color: #b83f45;
+  font-size: 3.0em;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+}
+
+.todo-input-blur {
+  border: 1px solid #d3d1d1;
+}
+
+.todo-input-focus {
+  border: 1px solid #b83f45;
+}
+
+.todos-container {
+  border: 1px solid #d3d1d1;
+}
