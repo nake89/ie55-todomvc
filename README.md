@@ -14,6 +14,10 @@ Reading material to develop for IE 5.5
 - https://en.wikipedia.org/wiki/JScript
 - https://www-archive.mozilla.org/js/js15.html
 - https://docstore.mik.ua/orelly/webprog/jscript/ch17_01.htm
+- https://stackoverflow.com/questions/524696/how-to-create-a-style-tag-with-javascript
+- http://www.richinstyle.com/bugs/ie5.html
+- http://www.javascriptkit.com/cutpastejava.shtml
+- https://web.archive.org/web/20050703022222/http://javascript.internet.com/
 
 # Notes
 
