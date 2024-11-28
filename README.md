@@ -8,3 +8,23 @@ Reading material to develop for IE 5.5
 - https://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/ecma-script-language-binding.html
 - https://johnresig.com/projects/flexible-javascript-events/
 - https://docs.oracle.com/cd/E19957-01/816-6408-10/handlers.htm
+- https://blog.jquery.com/2006/08/26/jquery-10/
+- https://releases.jquery.com/jquery/#jquery-all-1.x
+- https://web.archive.org/web/20061031140510/http://jquery.com/
+- https://en.wikipedia.org/wiki/JScript
+- https://www-archive.mozilla.org/js/js15.html
+- https://docstore.mik.ua/orelly/webprog/jscript/ch17_01.htm
+
+# Notes
+
+I incorrectly thought that IE 5.5 did not support document.getElementById.
+Because it was said that it was only supported since DOM LEVEL 2.
+Here: https://www.w3schools.com/jsref/met_document_getelementbyid.asp
+I emailed them to fix it.
+Also jQuery 1.0 uses document.getElementById. And it supported IE5.5
+It also used innerHTML. But I have yet to read more about that.
+jQuery 1.0 also seems to use the style to dynamically set styles.
+I might be mistaken about this. I need to read the source more.
+But this is a DOM 2 feature. But it is of course possible that IE5.5 already
+implemented some DOM 2 features.
+
