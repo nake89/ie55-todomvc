@@ -1,0 +1,67 @@
+var currentMode = "";
+
+window.onload = function () {
+  var rte = "ide";
+  if (document.all) {
+    var oRTE = frames[rte].document;
+    oRTE.designMode = "On";
+    oRTE.attachEvent("onkeypress", function evt_ie_keypress(event) {ieKeyPress(event, rte);});
+    oRTE.focus();
+  } else {
+    console.log(document.getElementById(rte));
+    // This is off because we start in normal mode
+    document.getElementById(rte).contentDocument.designMode = "off";
+    // console.log(document.getElementById(rte).contentDocument)
+    // console.log(document.getElementById(rte).contentDocument.designMode)
+    document.getElementById(rte).contentWindow.focus();
+    var oRTE = document.getElementById(rte).contentWindow.document;
+    oRTE.addEventListener("keyup", geckoKeyPress, true);
+  }
+  // Start in normal mode
+  normalMode();
+  currentMode = "NORMAL";
+};
+
+
+function geckoKeyPress(evt) {
+  // var oRTE = document.getElementById("ide").contentWindow.document;
+  console.log(evt);
+  switch (evt.keyCode) {
+    case 73:
+      document.getElementById("ide").contentDocument.designMode = "on";
+      insertMode();
+      break;
+    case 27:
+      document.getElementById("ide").contentDocument.designMode = "off";
+      normalMode();
+      break;
+    case 86:
+      document.getElementById("ide").contentDocument.designMode = "off";
+      visualMode();
+      break;
+  }
+}
+function ieKeyPress() {
+
+}
+
+function normalMode() {
+ changeVimMode("NORMAL", "#9966ff");
+}
+function insertMode() {
+  changeVimMode("INSERT", "#00ff99");
+}
+function visualMode() {
+  changeVimMode("VISUAL", "#ffff99")
+}
+
+function changeVimMode(text, color) {
+  const vimMode = document.getElementById("vimmode");
+  vimMode.innerHTML = text;
+  vimMode.style.backgroundColor = color;
+}
+
+
+// 73 i
+// 27 esc
+// 86 v

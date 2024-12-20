@@ -21,6 +21,9 @@ Reading material to develop for IE 5.5
 - https://www.adoma.cdc-habitat.fr/core/crossbrowser_rte/demo.php
 - https://premiumsoftware.net/cleditor/
 - https://web.archive.org/web/20080221054224/http://batiste.dosimple.ch/blog/posts/2007-09-11-1/rich-text-editor-jquery.html
+- https://stackoverflow.com/questions/5127409/do-ie-browsers-ie6-7-8-support-font-face
+- https://www.kirsle.net/wizards/embedded-fonts.html
+- http://www.quirksmode.org/js/keys.html
 
 # Notes
 
