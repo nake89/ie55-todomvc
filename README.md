@@ -18,6 +18,9 @@ Reading material to develop for IE 5.5
 - http://www.richinstyle.com/bugs/ie5.html
 - http://www.javascriptkit.com/cutpastejava.shtml
 - https://web.archive.org/web/20050703022222/http://javascript.internet.com/
+- https://www.adoma.cdc-habitat.fr/core/crossbrowser_rte/demo.php
+- https://premiumsoftware.net/cleditor/
+- https://web.archive.org/web/20080221054224/http://batiste.dosimple.ch/blog/posts/2007-09-11-1/rich-text-editor-jquery.html
 
 # Notes
 
