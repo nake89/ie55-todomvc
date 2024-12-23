@@ -8,6 +8,8 @@ Reading material to develop for IE 5.5
 - https://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/ecma-script-language-binding.html
 - https://johnresig.com/projects/flexible-javascript-events/
 - https://docs.oracle.com/cd/E19957-01/816-6408-10/handlers.htm
+- https://web.archive.org/web/20081122054907/https://msdn.microsoft.com/en-us/library/ms533051
+- https://learn.microsoft.com/en-us/previous-versions//ms531079(v=vs.85)?redirectedfrom=MSDN
 - https://blog.jquery.com/2006/08/26/jquery-10/
 - https://releases.jquery.com/jquery/#jquery-all-1.x
 - https://web.archive.org/web/20061031140510/http://jquery.com/
