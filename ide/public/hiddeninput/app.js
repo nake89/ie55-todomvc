@@ -8,12 +8,15 @@ window.onload = function () {
   // Start in normal mode
   normalMode();
   currentMode = "NORMAL";
-  document.body.addEventListener("keyup", geckoKeyPress, true);
+  //document.body.addEventListener("keyup", geckoKeyPress, true);
+  addEvent(document.body, "keyup", geckoKeyPress)
 };
 
 
 function geckoKeyPress(evt) {
-  console.log(evt);
+  console.log("key press")
+  console.log(Object.keys(evt));
+  // console.log(evt);
   // https://stackoverflow.com/a/29099509 maps numpad to correct number
   var key = evt.keyCode;
   key = String.fromCharCode((96 <= key && key <= 105) ? key - 48 : key);
@@ -79,10 +82,6 @@ function geckoKeyPress(evt) {
       //cursorPosX--;
       backspace();
     } else {
-      console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW")
-      console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW")
-      console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW")
-      console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW")
       addCharacter(key);
     }
   }
@@ -156,10 +155,10 @@ function printIDE() {
 function getTextWithCursor() {
   var splitted = textInEditor.split("\n");
   // if (cursorPosX === textInEditor.length) return textInEditor + "&#9608;";
-  console.log(`textInEditor.length: ${textInEditor.length}`)
-  console.log(`cursorPosX: ${cursorPosX}`)
+  //console.log(`textInEditor.length: ${textInEditor.length}`)
+  //console.log(`cursorPosX: ${cursorPosX}`)
   var beginText = splitted[cursorPosY].slice(0, cursorPosX);
-  console.log(`beginText: ${beginText}`)
+  //console.log(`beginText: ${beginText}`)
   // console.log(`beginText: ${textInEditor.slice(0,5)}`)
   var cursorText = splitted[cursorPosY][cursorPosX];
   //var endText = textInEditor.slice(cursorPosX+1, textInEditor.length-1 );
@@ -168,11 +167,11 @@ function getTextWithCursor() {
   } else {
     cursorText = "&#9608;";
   }
-  console.log(`Cursor text: ${cursorText}`)
+  //console.log(`Cursor text: ${cursorText}`)
   var endText = splitted[cursorPosY].slice(cursorPosX + 1, textInEditor.length);
-  console.log(`endText: ${endText}`);
+  //console.log(`endText: ${endText}`);
   var finalText = beginText + cursorText + endText;
-  console.log(`finalText: ${finalText}`);
+  //console.log(`finalText: ${finalText}`);
   //finalText = finalText.split("\n").join("<br>");
   if (finalText && finalText.length > 0) {
     console.log("finaltext is set")
@@ -206,11 +205,27 @@ function visualMode() {
 }
 
 function changeVimMode(text, color) {
-  const vimMode = document.getElementById("vimmode");
+  var vimMode = document.getElementById("vimmode");
   vimMode.innerHTML = text;
   vimMode.style.backgroundColor = color;
 }
 
+
+function addEvent( obj, type, fn ) {
+  if ( obj.attachEvent ) {
+    obj['e'+type+fn] = fn;
+    obj[type+fn] = function(){obj['e'+type+fn]( window.event );}
+    obj.attachEvent( 'on'+type, obj[type+fn] );
+  } else
+    obj.addEventListener( type, fn, false );
+}
+function removeEvent( obj, type, fn ) {
+  if ( obj.detachEvent ) {
+    obj.detachEvent( 'on'+type, obj[type+fn] );
+    obj[type+fn] = null;
+  } else
+    obj.removeEventListener( type, fn, false );
+}
 
 // 73 i
 // 27 esc
