@@ -1,5 +1,6 @@
 var currentMode = "";
 var normalModeKeyPresses = [];
+var exitInsertMode = false;
 var textInEditor = "";
 var cursorPosY = 0;
 var cursorPosX = 0;
@@ -9,13 +10,15 @@ window.onload = function () {
   normalMode();
   currentMode = "NORMAL";
   //document.body.addEventListener("keyup", geckoKeyPress, true);
-  addEvent(document.body, "keyup", geckoKeyPress)
+  document.getElementById("viminput").value = "";
+  document.getElementById("viminput").focus();
+  addEvent(document.body, "keyup", geckoKeyPress);
 };
 
 
 function geckoKeyPress(evt) {
   console.log("key press")
-  console.log(Object.keys(evt));
+  console.log(evt.keyCode);
   // console.log(evt);
   // https://stackoverflow.com/a/29099509 maps numpad to correct number
   var key = evt.keyCode;
@@ -77,12 +80,22 @@ function geckoKeyPress(evt) {
       enter();
     }
     // backspace
-    if (evt.keyCode === 8) {
+    if (evt.keyCode === 8 || evt.keyCode === 229) {
       //textInEditor = textInEditor.slice(0, -1);
       //cursorPosX--;
       backspace();
     } else {
+	    if (key === "j") {
+		    if (exitInsertMode) {
+			    normalMode();
+			    exitInsertMode = false;
+		    } else {
+		    exitInsertMode = true;
+		    setTimeout(function () { exitInsertMode = false; }, 1000);
+		    }
+	    }
       addCharacter(key);
+
     }
   }
   printIDE();
