@@ -1,5 +1,9 @@
 var hijackConsoleLog = true;
+var networkLog = [];
 
+
+// JSON stringify script
+// source: https://stackoverflow.com/questions/3326893/is-json-stringify-supported-by-ie-8
 var JSON = {};
 
 // implement JSON.stringify serialization
@@ -133,6 +137,7 @@ XMLHttpRequest.prototype.open = (function() {
 		console.log("arguments")
 		console.log(arguments.length)
 		console.log(arguments[0])
+		console.log(arguments[1])
 		return originalFn.apply(this, arguments);
 	}
 })()
@@ -172,4 +177,66 @@ http.onreadystatechange = function() {//Call a function when the state changes.
 http.send();
 		console.log("send");
 
+}
+
+
+function createDevToolsTable() {
+	var table = h("table");
+	table.setAttribute("id", "devtools");
+	table.style.width = "100%";
+	table.style.border = "2px solid blue";
+	addTableTabs();
+	document.body.appendChild(table);
+}
+
+function addTableTabs() {
+	var tr = h("tr");
+	var td1 = h("td");
+	td1.innerHTML = "Console";
+	var td2 = h("td");
+	td2.innerHTML = "Network";
+	tr.appendChild(td1)
+	tr.appendChild(td2)
+
+	// Area to display current tab in (console or network)
+	var currentTabTr = h("tr");
+	var currentTabTd = h("td");
+	currentTabTd.setAttribute("id", "currentTab");
+	currentTabTr.appendChild(currentTabTd);
+
+	var table = document.getElementById("devtools");
+	table.appendChild(tr);
+	table.appendChild(currentTabTr);
+}
+
+function createNetworkTable() {
+	var table = h("table");
+	table.setAttribute("id", "networkTab");
+	return table;
+}
+
+function createConsoleTable() {
+	var table = h("table");
+	table.setAttribute("id", "consoleTab");
+	return table;
+}
+
+function addNetworkRequest(method, url, params) {
+	var tr = h("tr");
+	var td1 = h("td");
+	td1.innerHTML = method;
+	var td2 = h("td");
+	td2.innerHTML = url;
+	var td3 = h("td");
+	td3.innerHTML = "params";
+	tr.appendChild(td1);
+	tr.appendChild(td2);
+	tr.appendChild(td3);
+	var table = document.getElementById("devtools");
+	table.appendChild(tr);
+}
+
+
+function h(name) {
+	return document.createElement(name);
 }

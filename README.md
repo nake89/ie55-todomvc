@@ -26,6 +26,7 @@ Reading material to develop for IE 5.5
 - https://stackoverflow.com/questions/5127409/do-ie-browsers-ie6-7-8-support-font-face
 - https://www.kirsle.net/wizards/embedded-fonts.html
 - http://www.quirksmode.org/js/keys.html
+- https://stackoverflow.com/questions/171542/proper-ie6-html-element-dimensions
 
 # Notes
 
