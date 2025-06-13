@@ -1,10 +1,15 @@
 var currentMode = "";
 var normalModeKeyPresses = [];
+var oRTE;
+
+function emptyNormalModeKeyPresses() {
+  normalModeKeyPresses = [];
+}
 
 window.onload = function () {
   var rte = "ide";
   if (document.all) {
-    var oRTE = frames[rte].document;
+    oRTE = frames[rte].document;
     oRTE.designMode = "On";
     oRTE.attachEvent("onkeypress", function evt_ie_keypress(event) {ieKeyPress(event, rte);});
     oRTE.focus();
@@ -15,7 +20,7 @@ window.onload = function () {
     // console.log(document.getElementById(rte).contentDocument)
     // console.log(document.getElementById(rte).contentDocument.designMode)
     document.getElementById(rte).contentWindow.focus();
-    var oRTE = document.getElementById(rte).contentWindow.document;
+    oRTE = document.getElementById(rte).contentWindow.document;
     oRTE.addEventListener("keyup", geckoKeyPress, true);
   }
   // Start in normal mode
@@ -44,10 +49,40 @@ function geckoKeyPress(evt) {
         break;
       case 69: // D
         normalModeKeyPresses.push("D");
+        setTimeout(emptyNormalModeKeyPresses(),1000);
+        break;
+      case 68: // D
+        normalModeKeyPresses.push("D");
+        setTimeout(emptyNormalModeKeyPresses(),1000);
+        break;
+      case 81: // Q
+        var rng = setRange();
+        console.log(rng);
+        break;
+    }
+  } else if (currentMode === "INSERT") {
+    switch (evt.keyCode) {
+      case 27: // ESC
+        normalModeKeyPresses = [];
+        document.getElementById("ide").contentDocument.designMode = "off";
+        normalMode();
         break;
     }
   }
 }
+
+function setRange() {
+  	if (document.all) {
+		var selection = oRTE.document.selection;
+		if (selection != null) rng = selection.createRange();
+	} else {
+		var selection = oRTE.getSelection();
+    console.log(selection)
+		rng = selection.getRangeAt(selection.rangeCount - 1).cloneRange();
+	}
+	return rng;
+}
+
 function ieKeyPress() {
 
 }
