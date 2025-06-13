@@ -30,6 +30,7 @@ Reading material to develop for IE 5.5
 - https://www.twinhelix.com/css/iepngfix/
 - https://git.twinhelix.com/cgit/iepngfix/
 - https://www.ecma-international.org/wp-content/uploads/ECMA-262_1st_edition_june_1997.pdf
+- https://github.com/ilinsky/xmlhttprequest
 
 # Notes
 
