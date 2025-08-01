@@ -32,6 +32,7 @@ Reading material to develop for IE 5.5
 - https://www.ecma-international.org/wp-content/uploads/ECMA-262_1st_edition_june_1997.pdf
 - https://github.com/ilinsky/xmlhttprequest
 - https://stackoverflow.com/questions/171542/proper-ie6-html-element-dimensions
+- https://aprelium.com/forum/viewtopic.php?p=58296&sid=88b51b376333bc5330b2cfacf95aa1b5 (This forum has the classic PHPBB skin)
 
 # Notes
 
